@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="12.0" style="-fx-background-color: #f4f6fb;"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.edu.uniquindio.poo.viewController.PrimaryViewController">
+   <padding>
+      <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+   </padding>
+   <children>
+      <Label text="Monedero Virtual" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #2b3a67;" />
+      <Label text="Sistema de puntos y recompensas" style="-fx-font-size: 15px; -fx-text-fill: #555;" />
+      <Label fx:id="lblResumen" style="-fx-font-size: 12px; -fx-text-fill: #777;" />
+      <Separator prefWidth="300.0" />
+      <Button onAction="#abrirClientes" prefHeight="38.0" prefWidth="300.0" text="Clientes y monederos" />
+      <Button onAction="#abrirTransacciones" prefHeight="38.0" prefWidth="300.0" text="Transacciones" />
+      <Button onAction="#abrirPuntos" prefHeight="38.0" prefWidth="300.0" text="Puntos y beneficios" />
+      <Button onAction="#abrirProgramadas" prefHeight="38.0" prefWidth="300.0" text="Transacciones programadas" />
+      <Button onAction="#abrirReportes" prefHeight="38.0" prefWidth="300.0" text="Reportes y alertas" />
+      <Separator prefWidth="300.0" />
+      <Button onAction="#salir" prefHeight="32.0" prefWidth="140.0" text="Salir" />
+   </children>
+</VBox>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.viewController.PuntosViewController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="15.0">
+         <children>
+            <Button onAction="#volver" text="← Volver" />
+            <Label text="Puntos y beneficios" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <ComboBox fx:id="cmbCliente" onAction="#mostrarCliente" prefWidth="280.0" promptText="Seleccione un cliente">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </ComboBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox spacing="10.0" prefWidth="360.0">
+         <children>
+            <GridPane hgap="10.0" vgap="8.0">
+               <children>
+                  <Label text="Rango:" GridPane.rowIndex="0" />
+                  <Label fx:id="lblRango" text="-" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #8a5a00;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                  <Label text="Puntos acumulados:" GridPane.rowIndex="1" />
+                  <Label fx:id="lblAcumulados" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Puntos disponibles:" GridPane.rowIndex="2" />
+                  <Label fx:id="lblDisponibles" text="-" style="-fx-font-weight: bold;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Beneficios del rango:" GridPane.rowIndex="3" />
+                  <Label fx:id="lblBeneficiosRango" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <Label fx:id="lblSiguienteRango" style="-fx-text-fill: #555;" />
+            <Separator />
+            <Label text="Canjear puntos" style="-fx-font-weight: bold;" />
+            <Button onAction="#canjearDescuento" prefWidth="340.0" text="100 pts · 10% menos comisión en transferencias" />
+            <Button onAction="#canjearRetiros" prefWidth="340.0" text="500 pts · un mes sin cargos por retiros" />
+            <Label text="Monedero que recibe el bono:" />
+            <ComboBox fx:id="cmbMonederoBono" prefWidth="340.0" />
+            <Button onAction="#canjearBono" prefWidth="340.0" text="1000 pts · bono de 50 en saldo" />
+         </children>
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <VBox spacing="8.0">
+         <children>
+            <Label text="Historial de puntos" style="-fx-font-weight: bold;" />
+            <ListView fx:id="lstHistorialPuntos" VBox.vgrow="ALWAYS" />
+            <Label text="Beneficios canjeados" style="-fx-font-weight: bold;" />
+            <ListView fx:id="lstBeneficios" prefHeight="160.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

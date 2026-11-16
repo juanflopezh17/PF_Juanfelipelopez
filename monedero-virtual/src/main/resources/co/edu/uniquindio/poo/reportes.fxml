@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.viewController.ReporteViewController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="15.0">
+         <children>
+            <Button onAction="#volver" text="← Volver" />
+            <Label text="Reportes y alertas" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+            <ComboBox fx:id="cmbCliente" onAction="#mostrarCliente" prefWidth="280.0" promptText="Seleccione un cliente">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </ComboBox>
+            <Button onAction="#generarReporte" text="Reporte de gastos" />
+            <Button onAction="#analizarAtipicas" text="Analizar atípicas" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <TextArea fx:id="txtReporte" style="-fx-font-family: 'Consolas', 'monospace'; -fx-font-size: 13px;">
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </center>
+   <right>
+      <VBox spacing="8.0" prefWidth="380.0">
+         <children>
+            <Label fx:id="lblNotificaciones" text="Alertas" style="-fx-font-weight: bold;" />
+            <ListView fx:id="lstNotificaciones" VBox.vgrow="ALWAYS" />
+            <Label text="Canales: correo, SMS y WhatsApp (simulados en consola)" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #777;" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

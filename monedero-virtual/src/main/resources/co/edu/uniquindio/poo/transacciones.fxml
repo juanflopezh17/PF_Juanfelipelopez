@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.poo.viewController.TransaccionViewController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="15.0">
+         <children>
+            <Button onAction="#volver" text="← Volver" />
+            <Label text="Transacciones" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox spacing="10.0" prefWidth="330.0">
+         <children>
+            <Label text="Monedero" style="-fx-font-weight: bold;" />
+            <ComboBox fx:id="cmbMonedero" onAction="#actualizarVista" prefWidth="320.0" promptText="Seleccione un monedero" />
+            <Label fx:id="lblSaldo" text="Saldo: -" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2b3a67;" />
+            <Label fx:id="lblCliente" wrapText="true" style="-fx-text-fill: #555;" />
+            <GridPane hgap="8.0" vgap="8.0">
+               <children>
+                  <Label text="Monto:" GridPane.rowIndex="0" />
+                  <TextField fx:id="txtMonto" promptText="Ej: 1500" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </GridPane>
+            <HBox spacing="8.0">
+               <children>
+                  <Button onAction="#depositar" prefWidth="100.0" text="Depositar" />
+                  <Button onAction="#retirar" prefWidth="100.0" text="Retirar" />
+               </children>
+            </HBox>
+            <Label text="Transferir a:" style="-fx-font-weight: bold;">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <ComboBox fx:id="cmbDestino" prefWidth="320.0" promptText="Monedero destino" />
+            <Button onAction="#transferir" prefWidth="208.0" text="Transferir" />
+            <Label text="Comisiones: retiro 1%, transferencia 2% (con descuentos por rango y beneficios)" wrapText="true" style="-fx-font-size: 11px; -fx-text-fill: #777;">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <VBox spacing="10.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+               <children>
+                  <Label text="Historial" style="-fx-font-weight: bold;" />
+                  <Label text="Filtrar por tipo:">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="cmbFiltro" onAction="#actualizarHistorial" prefWidth="160.0" promptText="Todos" />
+                  <Button onAction="#quitarFiltro" text="Quitar filtro" />
+               </children>
+            </HBox>
+            <TableView fx:id="tblHistorial" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="colCodigo" prefWidth="75.0" text="Código" />
+                  <TableColumn fx:id="colFecha" prefWidth="120.0" text="Fecha" />
+                  <TableColumn fx:id="colTipo" prefWidth="110.0" text="Tipo" />
+                  <TableColumn fx:id="colMonto" prefWidth="85.0" text="Monto" />
+                  <TableColumn fx:id="colComision" prefWidth="75.0" text="Comisión" />
+                  <TableColumn fx:id="colPuntos" prefWidth="55.0" text="Puntos" />
+                  <TableColumn fx:id="colEstado" prefWidth="85.0" text="Estado" />
+                  <TableColumn fx:id="colSospechosa" prefWidth="85.0" text="Sospechosa" />
+               </columns>
+            </TableView>
+            <Button onAction="#revertir" text="Revertir transacción seleccionada" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
